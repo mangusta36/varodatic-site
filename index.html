@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>فاروداتيك IPTV | 26,000+ قناة 4K</title>
+    <title>Varodatic IPTV | 26,000+ Channels 4K HDR Streaming</title>
+    <meta name="description" content="Varodatic IPTV - Watch 26,000+ live channels and 100,000+ movies in stunning 4K HDR. No contract, instant activation, 7-day money-back guarantee.">
+    <meta name="keywords" content="IPTV, 4K streaming, live sports, movies, best IPTV subscription">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,52 +18,95 @@
         }
 
         body {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: #0a0a0f;
             color: #ffffff;
             line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Animated Gradient Background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(125deg, #0a0a0f 0%, #0f0f1a 50%, #0a0a0f 100%);
+        }
+
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle at 30% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+            animation: slowMove 20s ease-in-out infinite;
+        }
+
+        @keyframes slowMove {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(5%, 5%); }
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a1f;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #7c3aed;
-            border-radius: 4px;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1f; }
+        ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 4px; }
 
-        /* Reusable Classes */
+        /* Container */
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        .section {
-            padding: 80px 0;
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 1000;
+            padding: 16px 0;
         }
 
-        .section-title {
-            font-size: 2.5rem;
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
             font-weight: 800;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+            text-decoration: none;
+            background: linear-gradient(135deg, #fff 30%, #a78bfa 80%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: #9ca3af;
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
+        .nav-links {
+            display: flex;
+            gap: 32px;
         }
 
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: #a78bfa; }
+
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -69,24 +115,24 @@
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
             color: white;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
         }
 
         .btn-outline {
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255,255,255,0.2);
             background: transparent;
             color: white;
         }
@@ -94,44 +140,80 @@
         .btn-outline:hover {
             border-color: #7c3aed;
             background: rgba(124, 58, 237, 0.1);
+            transform: translateY(-3px);
         }
 
-        /* Grid System */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px;
         }
 
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 50px;
+            padding: 6px 20px;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease;
         }
 
-        /* Cards */
-        .card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 28px;
-            transition: all 0.3s ease;
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease 0.1s both;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(124, 58, 237, 0.3);
-            background: rgba(124, 58, 237, 0.05);
+        .hero p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            animation: fadeInUp 0.8s ease 0.2s both;
         }
 
-        /* Stats Section */
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .hero-pills {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .pill {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #d1d5db;
+        }
+
+        /* Stats */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
             overflow: hidden;
             margin: 60px 0;
         }
@@ -140,7 +222,10 @@
             background: #0a0a0f;
             padding: 40px 20px;
             text-align: center;
+            transition: all 0.3s;
         }
+
+        .stat-item:hover { background: rgba(124, 58, 237, 0.05); }
 
         .stat-number {
             font-size: 2.5rem;
@@ -148,83 +233,139 @@
             color: #a78bfa;
         }
 
-        .stat-label {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            margin-top: 8px;
+        .stat-label { color: #9ca3af; font-size: 0.9rem; margin-top: 8px; }
+
+        /* Sections */
+        .section { padding: 100px 0; }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+        .section-subtitle {
+            text-align: center;
+            color: #9ca3af;
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+        }
+
+        /* Grids */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .grid-6 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(124, 58, 237, 0.4);
+            background: rgba(124, 58, 237, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .card-icon { font-size: 2.5rem; margin-bottom: 20px; display: inline-block; }
+        .card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+        .card p { color: #9ca3af; line-height: 1.6; }
 
         /* Pricing Cards */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
-
         .pricing-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 32px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 28px;
+            padding: 36px 28px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s;
         }
-
+        .pricing-card:hover { transform: translateY(-8px); border-color: rgba(124, 58, 237, 0.4); }
         .pricing-card.popular {
             border-color: #7c3aed;
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(167, 139, 250, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(167,139,250,0.03) 100%);
             transform: scale(1.02);
         }
-
         .badge {
             background: #7c3aed;
             color: white;
-            padding: 4px 12px;
+            padding: 4px 16px;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
             display: inline-block;
             margin-bottom: 20px;
         }
-
-        .price {
-            font-size: 3rem;
-            font-weight: 800;
-            margin: 20px 0;
-        }
-
-        .price small {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: #9ca3af;
-        }
-
+        .price { font-size: 3rem; font-weight: 800; margin: 20px 0; }
+        .price small { font-size: 0.9rem; font-weight: 400; color: #9ca3af; }
         .features-list {
             list-style: none;
-            margin: 20px 0;
+            margin: 24px 0;
             text-align: left;
         }
-
         .features-list li {
-            padding: 8px 0;
+            padding: 10px 0;
             color: #d1d5db;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
-
         .features-list li::before {
             content: "✓";
             color: #a78bfa;
             font-weight: bold;
+            font-size: 1.1rem;
         }
 
-        /* Floating WhatsApp */
+        /* Floating Elements */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 24px;
+            right: 24px;
             background: #25D366;
             width: 60px;
             height: 60px;
@@ -235,154 +376,161 @@
             font-size: 30px;
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             z-index: 1000;
         }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .section {
-                padding: 50px 0;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .pricing-card.popular {
-                transform: scale(1);
-            }
+            .section { padding: 60px 0; }
+            .section-title { font-size: 1.8rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-card.popular { transform: scale(1); }
+            .nav-links { display: none; }
+            .hero-buttons .btn { padding: 10px 20px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
+<div class="gradient-bg"></div>
 
 <!-- Navigation -->
-<nav style="position: fixed; top: 0; width: 100%; background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 100;">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
-        <a href="#" style="font-size: 1.5rem; font-weight: 800; text-decoration: none; color: white;">Varo<span style="color: #a78bfa;">datic</span></a>
-        <div style="display: flex; gap: 20px;">
-            <a href="#features" style="color: #9ca3af; text-decoration: none;">مميزات</a>
-            <a href="#pricing" style="color: #9ca3af; text-decoration: none;">الأسعار</a>
-            <a href="#faq" style="color: #9ca3af; text-decoration: none;">الأسئلة</a>
+<nav class="nav">
+    <div class="container nav-inner">
+        <a href="#" class="logo">Varo<span style="color:#a78bfa;">datic</span></a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#devices">Devices</a>
+            <a href="#faq">FAQ</a>
         </div>
-        <a href="https://wa.me/1234567890" class="btn btn-primary" style="padding: 8px 20px;">تجربة مجانية</a>
+        <a href="https://wa.me/1234567890" class="btn btn-primary" style="padding: 8px 24px;">Free Trial →</a>
     </div>
 </nav>
 
 <!-- Hero Section -->
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 20px 80px;">
+<section class="hero">
     <div class="container">
-        <div style="background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 50px; padding: 8px 20px; display: inline-block; margin-bottom: 30px;">
-            <span style="color: #a78bfa;">✓ موثوق من قبل 154,000+ مستخدم</span>
+        <div class="hero-badge">
+            <span style="color:#a78bfa;">✦</span> Trusted by 154,000+ streamers
         </div>
-        <h1 style="font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; margin-bottom: 20px;">
-            شاهد كل شيء.<br>
-            في أي مكان. بجودة 4K.
-        </h1>
-        <p style="font-size: 1.2rem; color: #9ca3af; max-width: 600px; margin: 0 auto 30px;">
-            26,000+ قناة حية، 100,000+ فيلم ومسلسل. تفعيل فوري على أي جهاز — بدون عقود أو بطاقة ائتمان.
-        </p>
-        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
-            <a href="https://wa.me/1234567890" class="btn btn-primary">▶ ابدأ التجربة المجانية</a>
-            <a href="#pricing" class="btn btn-outline">عرض الباقات</a>
+        <h1>Watch Everything.<br>Anywhere. In 4K HDR.</h1>
+        <p>26,000+ live channels, 100,000+ movies & shows. Instant activation — no contracts, no credit card.</p>
+        <div class="hero-buttons">
+            <a href="https://wa.me/1234567890" class="btn btn-primary"><i class="fas fa-play"></i> Start Free Trial</a>
+            <a href="#pricing" class="btn btn-outline">View Plans →</a>
         </div>
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-            <span class="badge" style="background: rgba(255,255,255,0.1);">✓ بدون بطاقة ائتمان</span>
-            <span class="badge" style="background: rgba(255,255,255,0.1);">✓ تفعيل فوري</span>
-            <span class="badge" style="background: rgba(255,255,255,0.1);">✓ استرداد 7 أيام</span>
-            <span class="badge" style="background: rgba(255,255,255,0.1);">✓ إلغاء في أي وقت</span>
+        <div class="hero-pills">
+            <span class="pill">✓ No credit card</span>
+            <span class="pill">✓ Instant activation</span>
+            <span class="pill">✓ 7-day refund</span>
+            <span class="pill">✓ Cancel anytime</span>
         </div>
     </div>
 </section>
 
-<!-- Stats Section -->
+<!-- Stats -->
 <div class="container">
     <div class="stats-grid">
-        <div class="stat-item"><div class="stat-number">154K+</div><div class="stat-label">مستخدم نشط</div></div>
-        <div class="stat-item"><div class="stat-number">26K+</div><div class="stat-label">قناة حية</div></div>
-        <div class="stat-item"><div class="stat-number">100K+</div><div class="stat-label">فيلم ومسلسل</div></div>
-        <div class="stat-item"><div class="stat-number">99.9%</div><div class="stat-label">وقت تشغيل</div></div>
+        <div class="stat-item"><div class="stat-number">154K+</div><div class="stat-label">Active Users</div></div>
+        <div class="stat-item"><div class="stat-number">26K+</div><div class="stat-label">Live Channels</div></div>
+        <div class="stat-item"><div class="stat-number">100K+</div><div class="stat-label">Movies & Shows</div></div>
+        <div class="stat-item"><div class="stat-number">99.9%</div><div class="stat-label">Uptime</div></div>
     </div>
 </div>
 
-<!-- Features Section -->
+<!-- Features -->
 <section class="section" id="features">
     <div class="container">
-        <h2 class="section-title">لماذا فاروداتيك؟</h2>
-        <p class="section-subtitle">مصمم خصيصاً لعشاق المشاهدة بلا توقف</p>
+        <h2 class="section-title">Why Varodatic?</h2>
+        <p class="section-subtitle">Engineered for serious streamers — sports, movies, everything</p>
         <div class="grid-3">
-            <div class="card"><div style="font-size: 2rem; margin-bottom: 15px;">⚡</div><h3>بث فائق السرعة</h3><p style="color: #9ca3af;">شبكة عالمية 40 جيجابت مع توازن أحمال يمنع التجميد. تبديل القنوات في أقل من 200 مللي ثانية.</p></div>
-            <div class="card"><div style="font-size: 2rem; margin-bottom: 15px;">🎬</div><h3>4K HDR أصلي</h3><p style="color: #9ca3af;">جودة متكيفة تتغير تلقائياً — بدون تعديل يدوي أو بكسلات في لحظات الرياضة الحاسمة.</p></div>
-            <div class="card"><div style="font-size: 2rem; margin-bottom: 15px;">📱</div><h3>متوافق مع كل الأجهزة</h3><p style="color: #9ca3af;">شاشات ذكية، أندرويد، فايرستيك، iOS والمزيد. اشتراك واحد لكل الشاشات.</p></div>
-            <div class="card"><div style="font-size: 2rem; margin-bottom: 15px;">🛡️</div><h3>صفر تخزين مؤقت</h3><p style="color: #9ca3af;">ما قبل التخزين 8 ثوانٍ واسترداد تلقائي للخادم. لا مزيد من أيقونة التحميل أبداً.</p></div>
-            <div class="card"><div style="font-size: 2rem; margin-bottom: 15px;">🌍</div><h3>مكتبة عالمية</h3><p style="color: #9ca3af;">باقات أمريكا، بريطانيا، أوروبا، آسيا، العربية، الفرنسية والإسبانية. تحديث يومي للمكتبة.</p></div>
-            <div class="card"><div style="font-size: 2rem; margin-bottom: 15px;">💬</div><h3>دعم خبراء 24/7</h3><p style="color: #9ca3af;">فريق متخصص جاهز على مدار الساعة للمساعدة وحل المشكلات وقتما تحتاج.</p></div>
+            <div class="card floating"><div class="card-icon">⚡</div><h3>Lightning-Fast Streaming</h3><p>40 Gbps backbone with anti-freeze balancing. Channel switches in under 200ms, 4K loads instantly.</p></div>
+            <div class="card floating" style="animation-delay: 0.2s;"><div class="card-icon">🎬</div><h3>Native 4K HDR</h3><p>Adaptive bitrate switches quality in real time — no pixelated moments, ever.</p></div>
+            <div class="card floating" style="animation-delay: 0.4s;"><div class="card-icon">📱</div><h3>All Devices</h3><p>Smart TVs, Firestick, Apple TV, Android, iOS — one subscription, every screen.</p></div>
+            <div class="card"><div class="card-icon">🛡️</div><h3>Zero Buffering</h3><p>8-second pre-buffer + automatic failover under 3 seconds. Spinning circle is gone forever.</p></div>
+            <div class="card"><div class="card-icon">🌍</div><h3>Global Library</h3><p>USA, UK, Canada, Europe, Asia, Arabic, French, Spanish — daily VOD updates.</p></div>
+            <div class="card"><div class="card-icon">💬</div><h3>24/7 Expert Support</h3><p>Dedicated team ready around the clock — setup help, troubleshooting, anything.</p></div>
         </div>
     </div>
 </section>
 
-<!-- Countries Section -->
+<!-- Countries -->
 <section class="section" style="padding-top: 0;">
     <div class="container">
-        <h2 class="section-title">قنوات من جميع أنحاء العالم</h2>
-        <div class="grid-4" style="text-align: center;">
-            <div class="card">🇺🇸 أمريكا</div>
-            <div class="card">🇬🇧 بريطانيا</div>
-            <div class="card">🇫🇷 فرنسا</div>
-            <div class="card">🇲🇦 المغرب</div>
-            <div class="card">🇦🇪 الإمارات</div>
-            <div class="card">🇨🇦 كندا</div>
+        <h2 class="section-title">Channels From Around The World</h2>
+        <div class="grid-6">
+            <div class="card" style="text-align:center; padding:20px;">🇺🇸 USA</div>
+            <div class="card" style="text-align:center; padding:20px;">🇬🇧 UK</div>
+            <div class="card" style="text-align:center; padding:20px;">🇫🇷 France</div>
+            <div class="card" style="text-align:center; padding:20px;">🇲🇦 Morocco</div>
+            <div class="card" style="text-align:center; padding:20px;">🇦🇪 UAE</div>
+            <div class="card" style="text-align:center; padding:20px;">🇨🇦 Canada</div>
         </div>
     </div>
 </section>
 
-<!-- Pricing Section -->
-<section class="section" id="pricing" style="background: rgba(124, 58, 237, 0.02);">
+<!-- Pricing -->
+<section class="section" id="pricing" style="background: radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.08) 0%, transparent 70%);">
     <div class="container">
-        <h2 class="section-title">أسعار بسيطة وشفافة</h2>
-        <p class="section-subtitle">بدون رسوم خفية أو عقود. كل الباقة تشمل جميع القنوات ومكتبة VOD الكاملة.</p>
+        <h2 class="section-title">Simple, Honest Pricing</h2>
+        <p class="section-subtitle">No hidden fees. No contracts. Every plan includes all channels + full VOD.</p>
         <div class="pricing-grid">
-            <div class="pricing-card"><div class="price">€35<small>/3 شهور</small></div><div style="color: #a78bfa;">وفر 14%</div><ul class="features-list"><li>26,000+ قناة حية</li><li>100,000+ محتوى VOD</li><li>جودة 4K / FHD / HD</li><li>دليل EPG متضمن</li><li>دعم 24/7</li></ul><a href="https://wa.me/1234567890" class="btn btn-primary" style="width: 100%; justify-content: center;">اختر الباقة</a></div>
-            <div class="pricing-card popular"><div class="badge">الأكثر طلباً</div><div class="price">€69<small>/12 شهر</small></div><div style="color: #a78bfa;">وفر 50% — أفضل قيمة</div><ul class="features-list"><li>26,000+ قناة حية</li><li>100,000+ محتوى VOD</li><li>أولوية الدعم 24/7</li><li>4K / FHD / HD</li><li>دليل EPG متضمن</li></ul><a href="https://wa.me/1234567890" class="btn btn-primary" style="width: 100%; justify-content: center;">اختر الباقة</a></div>
-            <div class="pricing-card"><div class="price">€49<small>/6 شهور</small></div><div style="color: #a78bfa;">وفر 33%</div><ul class="features-list"><li>26,000+ قناة حية</li><li>100,000+ محتوى VOD</li><li>جودة 4K / FHD / HD</li><li>دعم 24/7</li><li>قبول جميع الأجهزة</li></ul><a href="https://wa.me/1234567890" class="btn btn-primary" style="width: 100%; justify-content: center;">اختر الباقة</a></div>
+            <div class="pricing-card"><div class="price">$35<small>/3 months</small></div><div style="color:#a78bfa;">Save 14%</div><ul class="features-list"><li>26,000+ Live Channels</li><li>100,000+ VOD Titles</li><li>4K / FHD / HD Quality</li><li>EPG TV Guide</li><li>24/7 Support</li><li>7-Day Refund</li></ul><a href="https://wa.me/1234567890" class="btn btn-primary" style="width:100%; justify-content:center;">Get Started →</a></div>
+            <div class="pricing-card popular"><div class="badge">⭐ MOST POPULAR</div><div class="price">$69<small>/12 months</small></div><div style="color:#a78fa;">Save 50% — Best Value</div><ul class="features-list"><li>26,000+ Live Channels</li><li>100,000+ VOD Titles</li><li>4K / FHD / HD Quality</li><li>Priority 24/7 Support</li><li>Free Setup Help</li><li>7-Day Refund</li></ul><a href="https://wa.me/1234567890" class="btn btn-primary" style="width:100%; justify-content:center;">Get Started →</a></div>
+            <div class="pricing-card"><div class="price">$49<small>/6 months</small></div><div style="color:#a78bfa;">Save 33%</div><ul class="features-list"><li>26,000+ Live Channels</li><li>100,000+ VOD Titles</li><li>4K / FHD / HD Quality</li><li>All Devices Supported</li><li>24/7 Support</li><li>7-Day Refund</li></ul><a href="https://wa.me/1234567890" class="btn btn-primary" style="width:100%; justify-content:center;">Get Started →</a></div>
+        </div>
+        <p style="text-align:center; color:#6b7280; font-size:0.85rem; margin-top:32px;">✓ PayPal • Wise • Crypto • Bank Transfer • 7-day guarantee on all plans</p>
+    </div>
+</section>
+
+<!-- Devices -->
+<section class="section" id="devices">
+    <div class="container">
+        <h2 class="section-title">Works on Every Device You Own</h2>
+        <div class="grid-6">
+            <div class="card" style="text-align:center;"><div style="font-size:2rem;">📺</div>Smart TV</div>
+            <div class="card" style="text-align:center;"><div style="font-size:2rem;">🔥</div>Firestick</div>
+            <div class="card" style="text-align:center;"><div style="font-size:2rem;">📦</div>Android Box</div>
+            <div class="card" style="text-align:center;"><div style="font-size:2rem;">🍎</div>Apple TV</div>
+            <div class="card" style="text-align:center;"><div style="font-size:2rem;">📱</div>iPhone/Android</div>
+            <div class="card" style="text-align:center;"><div style="font-size:2rem;">💻</div>PC / Mac</div>
         </div>
     </div>
 </section>
 
-<!-- FAQ Section -->
+<!-- FAQ -->
 <section class="section" id="faq">
     <div class="container">
-        <h2 class="section-title">الأسئلة الشائعة</h2>
+        <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="grid-3">
-            <div class="card"><h3>ما هي سرعة الإنترنت المطلوبة؟</h3><p style="color: #9ca3af;">نوصي بـ 10 ميجابت للجودة HD و25 ميجابت لـ 4K. معظم اتصالات النطاق العريض المنزلي تعمل بشكل مثالي.</p></div>
-            <div class="card"><h3>كيف أبدأ التجربة المجانية؟</h3><p style="color: #9ca3af;">ما عليك سوى الضغط على "ابدأ التجربة المجانية" ومراسلتنا على واتساب. لا حاجة لبطاقة ائتمان.</p></div>
-            <div class="card"><h3>هل هناك ضمان استرداد الأموال؟</h3><p style="color: #9ca3af;">نعم، جميع الباقات تشمل ضمان استرداد لمدة 7 أيام. إذا لم تكن راضياً، اتصل بالدعم وسنرد أموالك.</p></div>
+            <div class="card"><h3>⚡ What internet speed do I need?</h3><p>10 Mbps for HD, 25 Mbps for 4K streaming. Most home broadband works perfectly.</p></div>
+            <div class="card"><h3>🎁 How do I start the free trial?</h3><p>Click "Start Free Trial" and message us on WhatsApp. No credit card needed — credentials within minutes.</p></div>
+            <div class="card"><h3>💰 Is there a money-back guarantee?</h3><p>Yes! All plans include a 7-day money-back guarantee. Not satisfied? Full refund, no questions asked.</p></div>
+            <div class="card"><h3>📺 How many devices can I use?</h3><p>Plans available for 1, 2, or 3 simultaneous connections. Choose at checkout.</p></div>
+            <div class="card"><h3>📧 How do I receive my login?</h3><p>After payment, Xtream Codes credentials (server URL, username, password) are emailed within 60 seconds.</p></div>
+            <div class="card"><h3>🌍 Which countries are supported?</h3><p>USA, UK, Canada, Europe, Asia, Middle East, North Africa — global servers for buffer-free streaming.</p></div>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
-<footer style="border-top: 1px solid rgba(255,255,255,0.05); padding: 40px 0; margin-top: 40px;">
+<footer style="border-top: 1px solid rgba(255,255,255,0.05); padding: 48px 0 32px;">
     <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-            <div>© 2026 فاروداتيك IPTV — جميع الحقوق محفوظة</div>
-            <div style="display: flex; gap: 20px;">
-                <span>✓ دفع آمن</span>
-                <span>✓ دعم 24/7</span>
-                <span>✓ وقت تشغيل 99.9%</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+            <div><span style="font-weight:800; font-size:1.3rem;">Varo<span style="color:#a78bfa;">datic</span></span><p style="color:#6b7280; font-size:0.8rem; margin-top:8px;">© 2026 Varodatic IPTV — All rights reserved</p></div>
+            <div style="display: flex; gap: 32px; flex-wrap: wrap;">
+                <div><h4 style="color:#9ca3af; margin-bottom:12px;">Support</h4><a href="#" style="color:#6b7280; text-decoration:none; display:block;">WhatsApp</a><a href="#" style="color:#6b7280; text-decoration:none; display:block;">Telegram</a></div>
+                <div><h4 style="color:#9ca3af; margin-bottom:12px;">Legal</h4><a href="#" style="color:#6b7280; text-decoration:none; display:block;">Terms of Service</a><a href="#" style="color:#6b7280; text-decoration:none; display:block;">Privacy Policy</a></div>
             </div>
         </div>
+        <div style="text-align:center; margin-top:40px; color:#6b7280; font-size:0.75rem;">✓ Secure payments • 24/7 support • 99.9% uptime guaranteed</div>
     </div>
 </footer>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/1234567890" class="whatsapp-float">💬</a>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 </body>
 </html>
