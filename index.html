@@ -3,158 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Varodatic IPTV — 26,000+ Channels 4K from $35</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <title>Varodatic IPTV</title>
     <style>
-        /* جميع الأنماط موجودة وكاملة هنا */
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#05070f;color:#eef0ff;font-family:'DM Sans',sans-serif}
-        /* باقي الأنماط كاملة في الملف الأصلي */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #05070f;
+            color: #eef0ff;
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 30%, #5b6bff 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        .hero p {
+            color: #7a7d9c;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-size: 18px;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: #5b6bff;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+
+        /* Pills */
+        .pills {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .pill {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 16px;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            background: #0c0f1e;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #5b6bff;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #7a7d9c;
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .feature {
+            background: #0c0f1e;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: #7a7d9c;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            margin-top: 3rem;
+            color: #7a7d9c;
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
 
-<!-- ========== NAVIGATION ========== -->
-<nav>
-    <a class="nav-logo" href="#">Varo<span>datic</span></a>
-    <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#how">How it works</a></li>
-        <li><a href="#faq">FAQ</a></li>
-    </ul>
-    <a class="nav-cta" href="https://wa.me/1234567890">Free Trial</a>
-</nav>
-
-<!-- ========== HERO ========== -->
 <section class="hero">
-    <div class="hero-badge"><span class="dot"></span> Trusted by 154,000+ streamers worldwide</div>
     <h1>Watch Everything.<br>Anywhere. In 4K.</h1>
     <p>26,000+ live channels, 100,000+ movies and shows. Instant activation on any device — no contracts, no credit card.</p>
-    <div class="hero-actions">
-        <a class="btn-primary" href="#">▶ Start Free Trial</a>
-        <a class="btn-outline" href="#pricing">View Plans</a>
+    
+    <div class="buttons">
+        <a href="#" class="btn-primary">▶ Start Free Trial</a>
+        <a href="#" class="btn-outline">View Plans</a>
     </div>
-    <div class="hero-pills">
-        <div class="pill"><span class="check">✓</span> No credit card</div>
-        <div class="pill"><span class="check">✓</span> Instant activation</div>
-        <div class="pill"><span class="check">✓</span> 7-day money-back</div>
-        <div class="pill"><span class="check">✓</span> Cancel anytime</div>
+    
+    <div class="pills">
+        <span class="pill">✓ No credit card</span>
+        <span class="pill">✓ Instant activation</span>
+        <span class="pill">✓ 7-day money-back</span>
+        <span class="pill">✓ Cancel anytime</span>
     </div>
 </section>
 
-<!-- ========== STATS (مرة وحدة فقط) ========== -->
-<div class="stats">
-    <div class="stat"><div class="stat-num">154K+</div><div class="stat-label">Active Users</div></div>
-    <div class="stat"><div class="stat-num">26,000+</div><div class="stat-label">Live Channels</div></div>
-    <div class="stat"><div class="stat-num">100K+</div><div class="stat-label">Movies & Shows</div></div>
-    <div class="stat"><div class="stat-num">99.9%</div><div class="stat-label">Server Uptime</div></div>
+<div class="stats-grid">
+    <div class="stat"><div class="stat-number">154K+</div><div class="stat-label">Active Users</div></div>
+    <div class="stat"><div class="stat-number">26K+</div><div class="stat-label">Live Channels</div></div>
+    <div class="stat"><div class="stat-number">100K+</div><div class="stat-label">Movies & Shows</div></div>
+    <div class="stat"><div class="stat-number">99.9%</div><div class="stat-label">Server Uptime</div></div>
 </div>
 
-<!-- ========== FEATURES ========== -->
-<section class="features" id="features">
-    <div class="features-header">
-        <div class="section-label">Why Varodatic</div>
-        <h2 class="section-title">Built for serious streamers</h2>
-    </div>
+<section class="features">
+    <h2 class="section-title">Why Varodatic<br><span style="font-size:24px;color:#7a7d9c;">Built for serious streamers</span></h2>
+    
     <div class="features-grid">
-        <div class="feature-card"><div class="feat-icon">⚡</div><h3>Lightning-Fast Streaming</h3><p>40 Gbps global backbone</p></div>
-        <div class="feature-card"><div class="feat-icon">🎬</div><h3>Native 4K HDR</h3><p>Adaptive bitrate switches quality</p></div>
-        <div class="feature-card"><div class="feat-icon">📱</div><h3>All Device Compatible</h3><p>Smart TVs, Firestick, iOS, Android</p></div>
-        <div class="feature-card"><div class="feat-icon">🛡</div><h3>Zero Buffering</h3><p>8-second pre-buffer</p></div>
-        <div class="feature-card"><div class="feat-icon">🌍</div><h3>Global Content Library</h3><p>USA, UK, Canada, Europe, Asia</p></div>
-        <div class="feature-card"><div class="feat-icon">💬</div><h3>24/7 Expert Support</h3><p>Dedicated team ready</p></div>
-    </div>
-</section>
-
-<!-- ========== COUNTRIES ========== -->
-<section class="devices">
-    <div class="section-label">COUNTRIES</div>
-    <h2 class="section-title">Channels From Around The World</h2>
-    <div class="devices-grid">
-        <div class="device-chip">🇺🇸 USA</div>
-        <div class="device-chip">🇬🇧 UK</div>
-        <div class="device-chip">🇫🇷 France</div>
-        <div class="device-chip">🇲🇦 Morocco</div>
-        <div class="device-chip">🇦🇪 UAE</div>
-        <div class="device-chip">🇨🇦 Canada</div>
-    </div>
-</section>
-
-<!-- ========== PRICING ========== -->
-<section class="pricing" id="pricing">
-    <div class="pricing-header">
-        <div class="section-label">Pricing</div>
-        <h2 class="section-title">Simple, honest pricing</h2>
-    </div>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <div class="price-period">3 Months</div>
-            <div class="price-amount"><span>$</span>35</div>
-            <ul class="price-features"><li>✓ 26,000+ Live Channels</li><li>✓ 100,000+ VOD</li><li>✓ 4K Quality</li></ul>
-            <a class="price-btn" href="#">Get Started</a>
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Lightning-Fast Streaming</h3>
+            <p>40 Gbps global backbone with anti-freeze load balancing. Channel switches in under 200ms.</p>
         </div>
-        <div class="price-card popular">
-            <div class="popular-badge">Most Popular</div>
-            <div class="price-period">12 Months</div>
-            <div class="price-amount"><span>$</span>69</div>
-            <ul class="price-features"><li>✓ 26,000+ Live Channels</li><li>✓ 100,000+ VOD</li><li>✓ Priority Support</li></ul>
-            <a class="price-btn" href="#">Get Started</a>
+        <div class="feature">
+            <div class="feature-icon">🎬</div>
+            <h3>Native 4K HDR</h3>
+            <p>Adaptive bitrate switches quality in real time — no manual toggles.</p>
         </div>
-        <div class="price-card">
-            <div class="price-period">6 Months</div>
-            <div class="price-amount"><span>$</span>49</div>
-            <ul class="price-features"><li>✓ 26,000+ Live Channels</li><li>✓ 100,000+ VOD</li><li>✓ 24/7 Support</li></ul>
-            <a class="price-btn" href="#">Get Started</a>
+        <div class="feature">
+            <div class="feature-icon">📱</div>
+            <h3>All Device Compatible</h3>
+            <p>Smart TVs, Android boxes, Firestick, iOS and more. One subscription, every screen.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🛡</div>
+            <h3>Zero Buffering</h3>
+            <p>8-second pre-buffer and automatic server failover. The spinning circle stays gone.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🌍</div>
+            <h3>Global Content Library</h3>
+            <p>USA, UK, Canada, Europe, Asia, Arabic, French, Spanish packages.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">💬</div>
+            <h3>24/7 Expert Support</h3>
+            <p>Dedicated team ready around the clock — whenever you need them.</p>
         </div>
     </div>
 </section>
 
-<!-- ========== HOW IT WORKS ========== -->
-<section class="how" id="how">
-    <div class="section-label">Setup</div>
-    <h2 class="section-title">Up and running in 3 steps</h2>
-    <div class="steps">
-        <div class="step"><div class="step-num">01</div><h3>Pick Your Plan</h3><p>Choose your subscription</p></div>
-        <div class="step"><div class="step-num">02</div><h3>Receive Credentials</h3><p>Message us on WhatsApp</p></div>
-        <div class="step"><div class="step-num">03</div><h3>Start Watching</h3><p>Enter credentials and enjoy 4K</p></div>
-    </div>
-</section>
-
-<!-- ========== DEVICES ========== -->
-<section class="devices">
-    <div class="section-label">Compatibility</div>
-    <h2 class="section-title">Works on every device you own</h2>
-    <div class="devices-grid">
-        <div class="device-chip">📺 Smart TV</div>
-        <div class="device-chip">🔥 Firestick</div>
-        <div class="device-chip">📦 Android Box</div>
-        <div class="device-chip">🍎 Apple TV</div>
-        <div class="device-chip">📱 Mobile</div>
-        <div class="device-chip">💻 PC / Mac</div>
-    </div>
-</section>
-
-<!-- ========== FAQ ========== -->
-<section class="faq" id="faq">
-    <div class="section-label">FAQ</div>
-    <h2 class="section-title">Common questions</h2>
-    <div class="faq-grid">
-        <div class="faq-item"><h4>What is Varodatic IPTV?</h4><p>Premium IPTV service with 26,000+ channels</p></div>
-        <div class="faq-item"><h4>Free trial?</h4><p>Yes, click WhatsApp button</p></div>
-        <div class="faq-item"><h4>Internet speed?</h4><p>10 Mbps for HD, 25 Mbps for 4K</p></div>
-        <div class="faq-item"><h4>Money-back guarantee?</h4><p>7-day guarantee</p></div>
-    </div>
-</section>
-
-<!-- ========== FOOTER ========== -->
 <footer>
-    <div class="footer-brand"><div class="nav-logo">Varo<span>datic</span></div><p>Official IPTV service</p></div>
-    <div class="footer-col"><h5>Support</h5><ul><li><a href="#">WhatsApp</a></li><li><a href="#">Telegram</a></li></ul></div>
-    <div class="footer-col"><h5>Legal</h5><ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul></div>
+    <p>© 2026 Varodatic IPTV — All rights reserved</p>
 </footer>
-
-<a href="https://wa.me/1234567890" class="whatsapp-float">💬</a>
 
 </body>
 </html>
